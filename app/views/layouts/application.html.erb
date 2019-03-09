@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Yuzuru</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel=“stylesheet” type=“text/css” href=“https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css“>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <!-- PopperのJS読み込み -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <!-- BootstrapのJS読み込み -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+  <!-- <p>test</p>   -->
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>" role="alert">
+      <%= value %>
+    </div>
+  <% end %>
+
+    <%= yield %>
+
+    <script>
+    $(function(){
+      $(".alert").fadeOut(5000);
+    });
+    </script>
+
+
+  </body>
+</html>
